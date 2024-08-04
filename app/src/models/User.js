@@ -7,9 +7,10 @@ class User {
     this.body = body;
   }
 
-  login() {
+  async login() {
     const client = this.body;
-    const { id, psword } = UserStorage.getUserInfo(client.id);
+    //await는 promise를 반환하는 애한테만 할 수
+    const { id, psword } = await UserStorage.getUserInfo(client.id);
     if (id) {
       if (id === client.id && psword === client.psword) {
         return { success: true };
