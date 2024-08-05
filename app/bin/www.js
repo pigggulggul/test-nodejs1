@@ -2,6 +2,7 @@
 
 const app = require("../app");
 const PORT = process.env.PORT;
+const logger = require("../src/config/logger");
 app.listen(PORT, () => {
-  console.log("서버 가동");
+  logger.info(`${PORT} 포트에서 서버가 가동되었습니다.`);
 });
